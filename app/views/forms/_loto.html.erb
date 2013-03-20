@@ -1,0 +1,319 @@
+<%= form_for([@client,@form])  do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- COMMENT LATER -->
+	<div class="table">
+		<table>
+			<tr>
+				<th class="top" colspan="2">
+					Energy Control Procedure
+				</th>
+			</tr>
+			<tr>
+				<td class="tleft w20">
+					Equipment Name:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :equip_name, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Equipment ID:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :equip_id, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Equipment Location:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :equip_location, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Date of Assessment:
+				</td>
+				<td class="tleft">
+					<%= f.date_select :assess_date, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Tasks to be Performed:
+				</td>
+				<td class="tleft">
+					<%= f.text_area :tasks_performed, :class=>"area w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Persons Performing the Assessment:
+				</td>
+				<td class="tleft">
+					<%= f.text_area :assessor, :class=>"area w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Table A - Identification of Hazardous Energies
+				</td>
+				<td>
+					<table class="checkbox2">
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :elec_highvolt %>
+							</td>
+							<td class="tleft">
+								Electrical - Hard Voltage (600V or more)
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :elec_lowvolt %>
+							</td>
+							<td class="tleft">
+								Electrical - Low Voltage (50V - 600V)
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :chem_hazmat %>
+							</td>
+							<td class="tleft">
+								Chemicals, Gases = Hazardous Materials
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :mech %>
+							</td>
+							<td class="tleft">
+								Mechanical - Shearing, pinching, rolling
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">	 
+								<%= f.check_box :stored_engy %>
+							</td>
+							<td class="tleft">
+								Stored Energy - Springs, capacitors, batteries
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :therm_cryo %>
+							</td>
+							<td class="tleft">
+								Thermal - Cryogenics - temp below 32°F/O°C
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :therm_high %>
+							</td>
+							<td class="tleft">
+								Thermal - Temperature above 140°F/60°C
+							</td>
+						</tr>
+					</table>
+					<table class="checkbox2">
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :press_hyd %>
+							</td>
+							<td class="tleft">
+								Pressure - Hydraulic (oil, water)
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :press_pneu %>
+							</td>
+							<td class="tleft">
+								Pressure - Pneumatic (air, gas)
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :vacuum %>
+							</td>
+							<td class="tleft">
+								Vacuum - PRessure @ mTorr
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :ion_rad %>
+							</td>
+							<td class="tleft">
+								Ionizing Radiation - X-Ray sources
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :non_rad_uv %>
+							</td>
+							<td class="tleft">
+								Non-Ionizing Radiation - UV, IR
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :non_rad_rf %>
+							</td>
+							<td class="tleft">
+								Non-Ionizing Radiation - RF, Lasers
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= f.check_box :other %>
+							</td>
+							<td class="tleft">
+								Other: <%= f.text_field :other_text, :class => 'other_text' %>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<table>
+				<th class="top" colspan="2">
+					Table B: Basic Lockout/Tagout Procedures:
+				</th>
+				<tr colspan="2"> Review and perform you Lockout/Tagout by following these steps.</tr>
+				<tr>
+					<td class="tleft">Lockout Procedure Steps</td>
+					<td class="tleft">Procedure To Return Equipment To Operation</td>
+				</tr>
+				<tr>
+					<td class="tleft">
+						<ul>
+							<li>1.	Read and Understand this Energy Control Procedure</li>
+							<li>2.	Get all applicable Lockout and Tagout (LOTO) Devices</li>
+							<li>3.	Notify Affected Persons then Initiate Shutdown Sequence according to Table C</li>
+							<li>4.	List hazardous energy in Column A (from Table A)</li>
+							<li>5.	List energy control point(s) in Column B</li>
+							<li>6.	Apply LOTO devices indicated in Column “C”</li>
+							<li>7.	Dissipate or release any residual energy per Column “D”</li>
+							<li>8.	Validate “zero energy state” per instructions in Column “E”</li>
+						</ul>
+					</td>
+					<td class="tleft">
+						<ul>
+							<li>1.	Inspect each energy source area and remove all tools, parts, or other items used during the maintenance activity</li>
+							<li>2.	Replace all safety devices (covers, guards, interlocks, emergency stops)</li>
+							<li>3.	Remove LOTO devices and re-energize equipment</li>
+							<li>4.	Test all safety devices for proper operation</li>
+							<li>5.	Notify Affected Persons equipment ready for use</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<th class="top" colspan="6">
+					Table C: Shutdown Sequence and Specific Procedures
+				</th>
+				<tr>
+					<td class="tleft w10">
+							Step #
+					</td>
+					<td class="tleft w15">
+							Energy Control Points
+					</td>
+					<td class="tleft w15">
+							Hazardous Energy and Locations
+					</td>
+					<td class="tleft w15">
+							Lockout Device
+					</td>		
+					<td class="tleft w15">
+							Dissipation or Release of Residual Energies
+					</td>	
+					<td class="tleft w15">
+							Validation of Zero Energy State
+					</td>
+				</tr>
+			</table>
+			<%= f.fields_for :procedures do |proc| %>
+			<table>
+				<tr>
+					<td class="tleft w10">
+						<%= proc.text_field :step_num, :class=>"field w99" %>
+					</td>
+					<td class="tleft w15">
+						<%= proc.text_area :haz_eng_loc, :class=>"area w99" %>
+					</td>
+					<td class="tleft w15">
+						<%= proc.text_area :engy_ctrl_pt, :class=>"area w99" %>
+					</td>
+					<td class="tleft w15">
+						<%= proc.text_area :lo_dev, :class=>"area w99" %>
+					</td>
+					<td class="tleft w15">
+						<%= proc.text_area :resid_engy, :class=>"area w99" %>
+					</td>
+					<td class="tleft w15">
+						<%= proc.text_area :valid_zero, :class=>"area w99" %>
+					</td>
+					<%= f.hidden_field :_destroy %>
+				<tr>
+			</table>
+			<% end %>
+			<table>
+				<th class="top" colspan="2">
+					Table D: Authorized Employees
+				</th>
+				<tr>
+					<td class="tleft w50">
+							Name:
+					</td>
+					<td class="tleft w50">
+							Title:
+					</td>
+				</tr>
+			</table>
+			<%= f.fields_for :authemps do |ae| %>
+				<table>
+					<tr> 
+						<td class="tleft w50">
+							<%= ae.text_field :name, :class=>"area w99" %>
+						</td>
+						<td class="tleft w50">
+							<%= ae.text_field :title, :class=>"area w99" %>
+						</td>
+					</tr>
+				</table>
+			<% end %>
+			<table>
+				<th>Transfer of the Control of LOTO Devices during Change of Shift:</th>
+				<tr><td>If this procedure lasts more than one work shift, the arriving shift employees will apply their locks and tags before the departing shift employees remove their locks and tags. In addition, the arriving shift authorized employee(s) will review and verify that the procedures listed above have been followed and are still in place.</td></tr> 
+			<table>
+			<tr>
+				<td class="tleft">
+					Form Actions:
+				</td>
+				<!-- COMMENT LATER -->
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li><%= f.submit 'Save Form', :class=>"link2" %></li>
+						<li><%= link_to 'Back to Form List', client_path(@client) , :class=>"link2" %></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

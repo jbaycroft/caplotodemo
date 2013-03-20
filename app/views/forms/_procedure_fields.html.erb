@@ -1,0 +1,28 @@
+<table>
+	<tr>
+		<td class="tleft w10">
+			<%= proc.text_field :step_num, :class=>"field w99" %>
+		</td>
+		<td class="tleft w15">
+			<%= proc.text_area :haz_eng_loc, :class=>"area w99" %>
+		</td>
+		<td class="tleft w15">
+			<%= proc.text_area :engy_ctrl_pt, :class=>"area w99" %>
+		</td>
+		<td class="tleft w15">
+			<%= proc.text_area :lo_dev, :class=>"area w99" %>
+		</td>
+		<td class="tleft w15">
+			<%= proc.text_area :resid_engy, :class=>"area w99" %>
+		</td>
+		<td class="tleft w15">
+			<%= proc.text_area :valid_zero, :class=>"area w99" %>
+		</td>
+		<tr>
+			<td class="tleft w10">
+				<%= link_to_function "remove", "remove_fields(this)" %>
+			</td>
+		</tr>
+		<%= proc.hidden_field :_destroy %>
+	<tr>
+</table>

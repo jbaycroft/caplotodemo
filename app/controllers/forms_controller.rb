@@ -19,6 +19,12 @@ class FormsController < ApplicationController
 	# GET /forms/1/.json
 	def new
 		@form = @client.forms.new
+    3.times do
+      procedure = @form.procedures.build
+    end
+    3.times do
+      authemp = @form.authemps.build
+    end
 
 		respond_to do |format|
       		format.html # show.html.erb
@@ -52,8 +58,8 @@ class FormsController < ApplicationController
 
     	respond_to do |format|
       		if @form.save
-        		format.html { redirect_to @form, notice: 'Lockout Tagout Form successfully added.' }
-        		format.json { render json: @form, status: :created, location: @form }
+        		format.html { redirect_to @client, notice: 'Lockout Tagout Form successfully added.' }
+        		format.json { render json: @client, status: :created, location: @form }
       		else
         		format.html { render action: "new" }
         		format.json { render json: @form.errors, status: :unprocessable_entity }
@@ -71,7 +77,7 @@ class FormsController < ApplicationController
 
     	respond_to do |format|
       		if @form.update_attributes(params[:form])
-        		format.html { redirect_to @form, notice: 'Lockout Tagout Form successfully updated.' }
+        		format.html { redirect_to @client, notice: 'Lockout Tagout Form successfully updated.' }
         		format.json { head :no_content }
      		else
         		format.html { render action: "edit" }
