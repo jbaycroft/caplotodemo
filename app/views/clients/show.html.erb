@@ -1,0 +1,55 @@
+<!-- the entire client description table is contained in div w/ class="table" -->
+<div class="table">
+	<table>
+		<tr>
+			<th class="top" colspan="2">
+				<%= @client.name %> Client Information
+			</th>
+		</tr>
+		<tr>
+			<th class="sub tleft w20">
+				Client Name:
+			</th>
+			<th class="sub tleft">
+				<%= @client.name %>
+			</th>
+		</tr>
+		<tr>
+			<td class="tleft">
+				Client Details:
+			</td>
+			<td class="tleft">
+				<%= @client.details %>
+			</td>
+		</tr>
+		<tr>
+			<td class="tleft">
+				Client Location:
+			</td>
+			<td class="tleft">
+				<%= @client.location %>
+			</td>
+		</tr>
+		<tr>
+			<td class="tleft">
+				Client Contact:
+			</td>
+			<td class="tleft">
+				<%= @client.contact %>
+			</td>
+		</tr>
+		<tr>
+			<td class="tleft">
+				Client Actions:
+			</td>
+			<!-- client description table contains client information (above) and action buttons -->
+			<td class="tcenter">
+				<ul class="menu w100">
+					<li><%= link_to 'Edit Client Info', edit_client_path(@client), :class=>"link2" %></li>
+					<li><%= link_to 'Back to Client List', clients_path, :class=>"link2" %></li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</div>
+<%= render 'forms/index' %>

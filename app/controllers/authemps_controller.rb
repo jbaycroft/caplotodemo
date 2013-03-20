@@ -1,0 +1,2 @@
+class AuthempsController < ApplicationController
+end

@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client: 
+  equip_name: MyText
+  equip_id: MyText
+  equip_location: MyText
+  tasks_performed: MyText
+  assessor: MyText
+  elec_highvolt: false
+  elec_lowvolt: false
+  chem_hazmat: false
+  mech: false
+  stored_engy: false
+  therm_cryo: false
+  therm_high: false
+  press_hyd: false
+  press_pneu: false
+  vacuum: false
+  ion_rad: false
+  non_rad_uv: false
+  non_rad_rf: false
+  other: false
+  other_text: MyText
+
+two:
+  client: 
+  equip_name: MyText
+  equip_id: MyText
+  equip_location: MyText
+  tasks_performed: MyText
+  assessor: MyText
+  elec_highvolt: false
+  elec_lowvolt: false
+  chem_hazmat: false
+  mech: false
+  stored_engy: false
+  therm_cryo: false
+  therm_high: false
+  press_hyd: false
+  press_pneu: false
+  vacuum: false
+  ion_rad: false
+  non_rad_uv: false
+  non_rad_rf: false
+  other: false
+  other_text: MyText

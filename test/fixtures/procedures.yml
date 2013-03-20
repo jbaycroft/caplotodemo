@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  form: 
+  step_num: 1
+  haz_eng_loc: MyText
+  engy_ctrl_pt: MyText
+  lo_dev: MyText
+  resid_engy: MyText
+  valid_zero: MyText
+  image: MyString
+
+two:
+  form: 
+  step_num: 1
+  haz_eng_loc: MyText
+  engy_ctrl_pt: MyText
+  lo_dev: MyText
+  resid_engy: MyText
+  valid_zero: MyText
+  image: MyString

@@ -1,0 +1,348 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/*
+--------------------------------------------------
+HTML CSS
+Set general HTML sytle rules
+Include adaptive screen size changes
+*/
+html
+{
+	font-size: 16px;
+	font-family: arial;
+	font-size: 75%; /* 1em = 12px */
+	background: white;
+	text-align: center;
+}
+@media screen and (max-width: 450px){
+	html{
+		font-size: 55%;
+	}
+}
+/*
+--------------------------------------------------
+HEADER CSS
+Set header width to full screen width
+*/
+.header{
+	width: 100%;
+}
+/*
+Set style rules for header (i.e. h1, h2, h3) text
+*/
+h1,h2,h3{
+	margin: 0.5em 0;
+}
+h1,h2{
+	font-size: 150%;
+	font-style: bold;
+}
+h1{
+	text-transform: uppercase;
+}
+h3{
+	font-size: 110%;
+	font-style: oblique;
+}
+/*
+TEXT ALIGN CSS
+--------------------------------------------------
+Set style rules for element text align classes
+*/
+.tleft{
+	text-align: left;
+}
+.tcenter{
+	text-align: center;
+}
+.tright{
+	text-align: right;
+}
+/*
+BLOCK WIDTH CSS
+--------------------------------------------------
+Set style rules for element width classes
+*/
+.w100{
+	width: 100%;
+}
+.w99{
+	width: 99%;
+}
+.w95{
+	width: 95%;
+}
+.w90{
+	width: 90%;
+}
+.w80{
+	width: 80%;
+}
+.w75{
+	width: 75%;
+}
+.w70{
+	width: 70%;
+}
+.w60{
+	width: 60%;
+}
+.w50{
+	width: 50%;
+}
+.w40{
+	width: 40%;
+}
+.w33{
+	width: 33.3333%;
+}
+.w30{
+	width: 30%;
+}
+.w25{
+	width: 25%;
+}
+.w20{
+	width: 20%;
+}
+.w15{
+	width: 15%;
+}
+/*
+MENU CSS
+--------------------------------------------------
+Set style rules for link / button list menus
+*/
+.menu{
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+}
+/*
+CHECKBOX CSS
+--------------------------------------------------
+Set general style rules for checkbox inputs
+*/
+.checkbox1,.checkbox2,.checkbox3,.checkbox4{
+	float: left;
+	font-family: arial;
+	font-weight: normal;
+	font-weight: bold;
+	font-size: 110%;
+	text-decoration: none;
+	color: rgb(19,45,77);
+	background: rgb(141,179,226);
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+/*
+Set width and margin rules to center checkboxes
+based on the number of items in the list
+*/
+.checkbox1{
+	padding: 0.5%;
+	width: 90%;
+	margin: 4px 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.checkbox2{
+	padding: 0.5%;
+	width: 45%;
+	margin: 4px 2.0%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.checkbox3{
+	padding: 0.5%;
+	width: 30%;
+	margin: 4px 1.16666%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.checkbox4{
+	padding: 0.5%;
+	width: 22.5%;
+	margin: 4px 0.75%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+/*
+Set checkbox part formatting
+*/
+.label{
+	text-decoration: none;
+}
+/*
+Set checkbox hover rules
+*/
+.checkbox1:hover,.checkbox2:hover,.checkbox3:hover,.checkbox4:hover{
+	color: rgb(31,73,125);
+	background: rgb(198,217,241);
+	cursor: pointer;
+}
+.checkbox1:active,.checkbox2:active,.checkbox3:active,.checkbox4:active{
+	color: white;
+	background: rgb(198,217,241);
+	cursor: pointer;
+}
+/*
+Set alternate checkbox layout rules
+*/
+@media screen and (max-width: 800px){
+	.checkbox2{
+		padding: 2px 0.5%;
+		width: 90%;
+		margin: 4px 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */	
+	}
+	.checkbox3{
+		padding: 2px 0.5%;
+		width: 90%;
+		margin: 4px 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */	
+	}
+	.checkbox4{
+		padding: 2px 0.5%;
+		width: 45%;
+		margin: 4px 2.0%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+	}
+}
+/*
+LINK / BUTTON CSS
+--------------------------------------------------
+Set general style rules for links / buttons
+*/
+.link1,.link2,.link3,.link4{
+	float: left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 100%;
+	text-decoration: none;
+	border: none;
+	color: rgb(31,73,125);
+	background: rgb(228,237,248);
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+/*
+Set width and margin rules to center links / buttons
+based on the number of items in list menu
+*/
+.link1{
+	padding: 0.5%;
+	width: 90%;
+	margin: 0 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.link2{
+	padding: 0.5%;
+	width: 45%;
+	margin: 0 2.0%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.link3{
+	padding: 0.5%;
+	width: 30%;
+	margin: 0 1.16666%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+.link4{
+	padding: 0.5%;
+	width: 22.5%;
+	margin: 0 0.75%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+}
+/*
+Set link / button hover and active rules
+*/
+.link1:hover,.link2:hover,.link3:hover,.link4:hover{
+	color: white;
+	background: rgb(31,73,125);
+	cursor: pointer;
+}
+.link1:active,.link2:active,.link3:active,.link4:active{
+	color: white;
+	background: rgb(31,73,125);
+	cursor: pointer;
+}
+/*
+Set alternate link / button layout rules
+*/
+@media screen and (max-width: 800px){
+	.link2{
+		padding: 2px 0.5%;
+		width: 90%;
+		margin: 2px 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */	
+	}
+	.link3{
+		padding: 2px 0.5%;
+		width: 90%;
+		margin: 2px 4.5%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */	
+	}
+	.link4{
+		padding: 2px 0.5%;
+		width: 45%;
+		margin: 2px 2.0%; /* [100% - (#buttons/#rows)*(%width) - (2) *(#buttons/#rows)*(%LRpadding)] / [2 * (#buttons/#rows)] */
+	}
+}
+/*
+TABLE CSS
+--------------------------------------------------
+Set general style rules for tables
+*/
+table,th,td{	
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 0.5%;
+	text-align: center;
+	vertical-align: center;
+}
+.table{
+	float: left;
+	width: 100%;
+	margin: 10px 0;
+}
+table{
+	width: 90%;
+	border: none;
+	margin: 0 auto;
+}
+.top{
+	font-size: 1.2em;
+	background: rgb(31,73,125);
+	color: white;
+}
+.sub{
+	font-size: 1.1em;
+	font-style: italic;
+	background: rgb(84,141,212);
+	color: white;
+}
+/*
+TEXT FIELD / AREA CSS
+--------------------------------------------------
+Set general style rules for text fields / areas
+*/
+.field{
+	height: 15px;
+}
+.area{
+	height: 30px;
+	min-height: 30px;
+	resize: vertical;
+}
+.form{
+	width: 100%;
+}
+/*
+ACTIVE DIV CSS
+--------------------------------------------------
+Set general style rules for active class
+*/
+.active{
+	color: white;
+	border: 1px solid black;
+	background: rgb(84,141,212);
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+	

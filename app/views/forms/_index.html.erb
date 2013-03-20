@@ -1,0 +1,51 @@
+<!-- the entire task index table is contained in div w/ class="table" -->
+<div class="table">
+	<!-- first subtable contains the main header and the column headers -->
+	<table>
+		<tr>
+			<th class="top" colspan="4">
+				Lockout Tagout Forms for <%= @client.name %> 
+			</th>
+		</tr>
+		<tr>
+			<th class="sub tleft w25">
+				Equipment ID:
+			</th>
+			<th class="sub tleft w25">
+				Equipment Name:
+			</th>
+			<th class="sub tcenter">
+				Task Actions:
+			</th>
+		</tr>
+	</table>
+	<!-- div_for creates new subtable for each task created -->
+	<%= div_for(@client.forms) do |form| %>
+		<!-- each task subtable contains task information and action buttons -->
+		<table>
+			<tr>
+				<td class="tleft w25">
+					<%= form.equip_id %>
+				</td>
+				<td class="tleft w25">
+					<%= form.equip_name %>
+				</td>
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li><%= link_to 'Edit Info', edit_client_form_path(@client,form), :class=>"link3" %></li>
+						<li><%= link_to 'Show Completed Form', client_form_path(@client, form), :class=>"link3" %></li>
+						<li><%= link_to 'Destroy', [@client,form], method: :delete, remote: true, data: { confirm: 'Are you sure?' }, :class=>"link3" %></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+	<!-- last subtable contains the button to create new tasks -->
+	<table>
+		<tr>
+			<td class="tcenter" colspan="4">
+				<%= link_to 'Create New Lockout Tagout Form', new_client_form_path(@client), :class=>"link1" %>
+			</td>
+		</tr>
+	</table>
+</div>

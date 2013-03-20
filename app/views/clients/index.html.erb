@@ -1,0 +1,57 @@
+<!-- the entire client index table is contained in div w/ class="table" -->
+<div class="table">
+	<!-- first subtable contains the main header and the column headers -->
+	<table>
+		<tr>
+			<th class="top" colspan="4">
+				Compliance Application
+			</th>
+		</tr>
+		<tr>
+			<th class="sub tleft w25">
+				Client Name:
+			</th>
+			<th class="sub tleft w25">
+				Client Location:
+			</th>
+			<th class="sub tcenter w20">
+				Contact:
+			</th>
+			<th class="sub tcenter">
+				Client Actions:
+			</th>
+		</tr>
+	</table>
+	<!-- div_for creates new subtable for each department created -->
+	<%= div_for(@clients) do |client| %>
+		<!-- each department subtable contains department information and action buttons -->
+		<table>
+			<tr>
+				<td class="tleft w25">
+					<%= client.name %>
+				</td>
+				<td class="tleft w25">
+					<%= client.location %>
+				</td>
+				<td class="tcenter w20">
+					<%= client.contact %>
+				</td>
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li><%= link_to 'Edit Info', edit_client_path(client), :class=>"link3" %></li>
+						<li><%= link_to 'Lockout Tagout Forms', client_path(client), :class=>"link3" %></li>
+						<li><%= link_to 'Destroy', client, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, :class=>"link3" %></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+	<!-- last subtable contains the button to create new departments -->
+	<table>
+		<tr>
+			<td class="tcenter" colspan="4">
+				<%= link_to 'Add New Client', new_client_path, :class=>"link1" %>
+			</td>
+		</tr>
+	</table>
+</div>

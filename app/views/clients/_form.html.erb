@@ -1,0 +1,72 @@
+<%= form_for(@client) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<!-- client description form table contains editable fields for:
+		- Client Name
+		- Client Details
+		- Client Location
+		- Client Contact -->
+	<div class="table">
+		<table>
+			<tr>
+				<th class="top" colspan="2">
+					Client Form
+				</th>
+			</tr>
+			<tr>
+				<td class="tleft w20">
+					Client Name:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :name, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Client Details:
+				</td>
+				<td class="tleft">
+					<%= f.text_area :details, :class=>"area w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Client Location:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :location, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Client Contact:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :contact, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Client Actions:
+				</td>
+				<!-- client description table contains client information (above) and action buttons -->
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li><%= f.submit 'Save Client Info', :class=>"link2" %></li>
+						<li><%= link_to 'Back to Client List', clients_path, :class=>"link2" %></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+<% end %>
