@@ -1,0 +1,246 @@
+<%= form_for([@client,@form])  do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- COMMENT LATER -->
+	<div class="table">
+		<table>
+			<tr>
+				<th class="top" colspan="2">
+					Energy Control Procedure
+				</th>
+			</tr>
+			<tr>
+				<td class="tleft w20">
+					Equipment Name:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :equip_name, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Equipment ID:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :equip_id, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Task Location:
+				</td>
+				<td class="tleft">
+					<%= f.text_field :location, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Review Team:
+				</td>
+				<td class="tleft">
+					<%= f.text_area :team, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Work Shift:
+				</td>
+				<td>
+					<table class="w100">
+						<tr>
+							<td class="tleft w30">
+								Shift Length (select one):
+							</td>
+							<td class="tcenter">
+								<ul class="menu w100">
+									<li class="checkbox2"><%= f.radio_button :shifttime, 'Part-Time' %><%=f.label :shifttime, 'Part-Time' %></li>
+									<li class="checkbox2"><%= f.radio_button :shifttime, 'Full-Time' %><%=f.label :shifttime, 'Full-Time' %></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft w30">
+								Shift Time (select all that apply):
+							</td>
+							<td class="tcenter">
+								<ul class="menu w100">
+									<li class="checkbox3"><%= f.check_box :shiftday, :class=>"box" %><%= f.label :shiftday, '  Daytime', :class=>"label" %></li>
+									<li class="checkbox3"><%= f.check_box :shiftnight, :class=>"box" %><%= f.label :shiftnight, '  Nighttime', :class=>"label" %></li>
+									<li class="checkbox3"><%= f.check_box :shiftweekend, :class=>"box" %><%= f.label :shiftweekend, '  Weekend', :class=>"label" %></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft w30">
+								Type of Work (select one):
+							</td>
+							<td class="tcenter">
+								<ul class="menu w100">
+									<li class="checkbox2"><%= f.radio_button :shiftwrker, 'Lone-Worker' %><%=f.label :shiftwrker, 'Lone-Worker' %></li>
+									<li class="checkbox2"><%= f.radio_button :shiftwrker, 'Group/Team' %><%=f.label :shiftwrker, 'Group/Team' %></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Equipment Used:
+				</td>
+				<td>
+					<table class="w100">
+						<tr>
+							<td class="tleft w30">
+								<ul class="menu w100">
+									<li class="checkbox1"><%= f.check_box :equipmachine, :class=>"box" %><%= f.label :equipmachine, '  Machine(s)', :class=>"label" %></li>
+								</ul>
+							</td>
+							<td class="tleft w10">
+								Description:
+							</td>
+							<td>
+								<%= f.text_area :machine, :class=>"field w99" %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft w30">
+								<ul class="menu w100">
+									<li class="checkbox1"><%= f.check_box :equiptool, :class=>"box" %><%= f.label :equiptool, '  Tool(s)', :class=>"label" %></li>
+								</ul>
+							</td>
+							<td class="tleft w10">
+								Description:
+							</td>
+							<td>
+								<%= f.text_area :tool, :class=>"field w99" %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft w30">
+								<ul class="menu w100">
+									<li class="checkbox1"><%= f.check_box :equipdevice, :class=>"box" %><%= f.label :equipdevice, '  Other Device(s)', :class=>"label" %></li>
+								</ul>
+							</td>
+							<td class="tleft w10">
+								Description:
+							</td>
+							<td>
+								<%= f.text_area :device, :class=>"field w99" %>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Restricted Access:
+				</td>
+				<td>
+					<table class="w100">
+						<tr>
+							<td class="tleft w30">
+								Restricted Area (select one):
+							</td>
+							<td class="tcenter">
+								<ul class="menu w100">
+									<li class="checkbox2"><%= f.radio_button :restricted, 'True' %><%=f.label :restricted, 'Yes' %></li>
+									<li class="checkbox2"><%= f.radio_button :restricted, 'False' %><%=f.label :restricted, 'No' %></li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft w30">
+								Restriction Method (select all that apply):
+							</td>
+							<td class="tcenter">
+								<ul class="menu w100">
+									<li class="checkbox3"><%= f.check_box :restrictmethod1, :class=>"box" %><%= f.label :restrictmethod1, '  Badge', :class=>"label" %></li>
+									<li class="checkbox3"><%= f.check_box :restrictmethod2, :class=>"box" %><%= f.label :restrictmethod2, '  Key', :class=>"label" %></li>
+									<li class="checkbox3"><%= f.check_box :restrictmethod3, :class=>"box" %><%= f.label :restrictmethod3, '  Other', :class=>"label" %></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Accident History:
+				</td>
+				<td>
+					<%= f.text_area :history, :class=>"field w99" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Hazards Associated </br> with this Task:
+				</td>
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li class="checkbox4"><%= f.label :hazard1, 'Access & Egress', :class=>"label" %></br><%= f.check_box :hazard1, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard2, 'Biohazard', :class=>"label" %></br><%= f.check_box :hazard2, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard3, 'Co-Worker', :class=>"label" %></br><%= f.check_box :hazard3, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard4, 'Cut & Puncture', :class=>"label" %></br><%= f.check_box :hazard4, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard5, 'Ergonomics', :class=>"label" %></br><%= f.check_box :hazard5, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard6, 'Slip, Trip or Fall', :class=>"label" %></br><%= f.check_box :hazard6, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard7, 'Fire', :class=>"label" %></br><%= f.check_box :hazard7, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard8, 'Hazardous Atmosphere', :class=>"label" %></br><%= f.check_box :hazard8, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard9, 'Hazardous Energy', :class=>"label" %></br><%= f.check_box :hazard9, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard10, 'Hazardous Materials', :class=>"label" %></br><%= f.check_box :hazard10, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard11, 'Lasers', :class=>"label" %></br><%= f.check_box :hazard11, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard12, 'Lone-Worker', :class=>"label" %></br><%= f.check_box :hazard12, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard13, 'Magnetism', :class=>"label" %></br><%= f.check_box :hazard13, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard14, 'Mechanical Handling', :class=>"label" %></br><%= f.check_box :hazard14, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard15, 'Noise, Vibration & Light', :class=>"label" %></br><%= f.check_box :hazard15, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard16, 'Overhead', :class=>"label" %></br><%= f.check_box :hazard16, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard17, 'Radiation', :class=>"label" %></br><%= f.check_box :hazard17, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard18, 'Road', :class=>"label" %></br><%= f.check_box :hazard18, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard19, 'Temperature', :class=>"label" %></br><%= f.check_box :hazard19, :class=>"box" %></li>
+						<li class="checkbox4"><%= f.label :hazard20, 'Tool/Machinery', :class=>"label" %></br><%= f.check_box :hazard20, :class=>"box" %></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Assessment Complete:
+				</td>
+				<td class="tleft">
+					<%= f.check_box :complete %>
+					<%= f.label :complete, " (Select Check Box if Department Assessment is Complete)"%>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Date Completed:
+				</td>
+				<td class="tleft">
+					<%= f.date_select :date_completed %>
+					<%= f.label :date_completed, " (Select Date on which Assessment was Completed)" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="tleft">
+					Task Actions:
+				</td>
+				<!-- task description table contains task information (above) and action buttons -->
+				<td class="tcenter">
+					<ul class="menu w100">
+						<li><%= f.submit 'Save Task Info', :class=>"link2" %></li>
+						<li><%= link_to 'Back to Task List', department_path(@department), :class=>"link2" %></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>
