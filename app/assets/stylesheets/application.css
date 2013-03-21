@@ -351,8 +351,8 @@ Set general style rules for active class
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.other_text{
-	display:hidden;
+.box{
+	float:right;
 }
 	
 

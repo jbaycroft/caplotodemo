@@ -67,18 +67,22 @@
 					<%= f.text_area :assessor, :class=>"area w99" %>
 				</td>
 			</tr>
+		</table>
+		<table>
 			<tr>
-				<td class="tleft">
+				<td class="tcenter sub" colspan="2">
 					Table A - Identification of Hazardous Energies
 				</td>
-				<td>
-					<table class="checkbox2">
+			</tr>
+			<tr>
+				<td class="w50">
+					<table class="checkbox1">
 						<tr>
 							<td class="tleft">
 								<%= f.check_box :elec_highvolt %>
 							</td>
 							<td class="tleft">
-								Electrical - Hard Voltage (600V or more)
+								Electrical - Hard Voltage (600V or more) <%= f.text_field :highvolt_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -86,7 +90,7 @@
 								<%= f.check_box :elec_lowvolt %>
 							</td>
 							<td class="tleft">
-								Electrical - Low Voltage (50V - 600V)
+								Electrical - Low Voltage (50V - 600V) <%= f.text_field :lowvolt_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -94,7 +98,7 @@
 								<%= f.check_box :chem_hazmat %>
 							</td>
 							<td class="tleft">
-								Chemicals, Gases = Hazardous Materials
+								Chemicals, Gases = Hazardous Materials <%= f.text_field :hazmat_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -102,7 +106,7 @@
 								<%= f.check_box :mech %>
 							</td>
 							<td class="tleft">
-								Mechanical - Shearing, pinching, rolling
+								Mechanical - Shearing, pinching, rolling <%= f.text_field :mech_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -110,7 +114,7 @@
 								<%= f.check_box :stored_engy %>
 							</td>
 							<td class="tleft">
-								Stored Energy - Springs, capacitors, batteries
+								Stored Energy - Springs, capacitors, batteries <%= f.text_field :stored_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -118,7 +122,7 @@
 								<%= f.check_box :therm_cryo %>
 							</td>
 							<td class="tleft">
-								Thermal - Cryogenics - temp below 32°F/O°C
+								Thermal - Cryogenics - temp below 32°F/O°C <%= f.text_field :cryo_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -126,17 +130,19 @@
 								<%= f.check_box :therm_high %>
 							</td>
 							<td class="tleft">
-								Thermal - Temperature above 140°F/60°C
+								Thermal - Temperature above 140°F/60°C <%= f.text_field :high_text, :class => "box" %>
 							</td>
 						</tr>
 					</table>
-					<table class="checkbox2">
+				</td>
+				<td class="w50">
+					<table class="checkbox1">
 						<tr>
 							<td class="tleft">
 								<%= f.check_box :press_hyd %>
 							</td>
-							<td class="tleft">
-								Pressure - Hydraulic (oil, water)
+							<td class="tleft"> 
+								Pressure - Hydraulic (oil, water) <%= f.text_field :hyd_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -144,7 +150,7 @@
 								<%= f.check_box :press_pneu %>
 							</td>
 							<td class="tleft">
-								Pressure - Pneumatic (air, gas)
+								Pressure - Pneumatic (air, gas) <%= f.text_field :pneu_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -152,7 +158,7 @@
 								<%= f.check_box :vacuum %>
 							</td>
 							<td class="tleft">
-								Vacuum - PRessure @ mTorr
+								Vacuum - PRessure @ mTorr <%= f.text_field :vac_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -160,7 +166,7 @@
 								<%= f.check_box :ion_rad %>
 							</td>
 							<td class="tleft">
-								Ionizing Radiation - X-Ray sources
+								Ionizing Radiation - X-Ray sources <%= f.text_field :rad_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -168,7 +174,7 @@
 								<%= f.check_box :non_rad_uv %>
 							</td>
 							<td class="tleft">
-								Non-Ionizing Radiation - UV, IR
+								Non-Ionizing Radiation - UV, IR <%= f.text_field :uv_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -176,7 +182,7 @@
 								<%= f.check_box :non_rad_rf %>
 							</td>
 							<td class="tleft">
-								Non-Ionizing Radiation - RF, Lasers
+								Non-Ionizing Radiation - RF, Lasers <%= f.text_field :rf_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -184,7 +190,7 @@
 								<%= f.check_box :other %>
 							</td>
 							<td class="tleft">
-								Other: <%= f.text_field :other_text, :class => 'other_text' %>
+								Other: <%= f.text_field :other_text, :class => "box" %>
 							</td>
 						</tr>
 					</table>
@@ -196,8 +202,8 @@
 				</th>
 				<tr colspan="2"> Review and perform you Lockout/Tagout by following these steps.</tr>
 				<tr>
-					<td class="tleft">Lockout Procedure Steps</td>
-					<td class="tleft">Procedure To Return Equipment To Operation</td>
+					<td class="tleft sub">Lockout Procedure Steps</td>
+					<td class="tleft sub">Procedure To Return Equipment To Operation</td>
 				</tr>
 				<tr>
 					<td class="tleft">
@@ -228,22 +234,22 @@
 					Table C: Shutdown Sequence and Specific Procedures
 				</th>
 				<tr>
-					<td class="tleft w10">
+					<td class="tleft w10 sub">
 							Step #
 					</td>
-					<td class="tleft w15">
-							Energy Control Points
-					</td>
-					<td class="tleft w15">
+					<td class="tleft w15 sub">
 							Hazardous Energy and Locations
 					</td>
-					<td class="tleft w15">
+					<td class="tleft w15 sub">
+							Energy Control Points
+					</td>
+					<td class="tleft w15 sub">
 							Lockout Device
 					</td>		
-					<td class="tleft w15">
+					<td class="tleft w15 sub">
 							Dissipation or Release of Residual Energies
 					</td>	
-					<td class="tleft w15">
+					<td class="tleft w15 sub">
 							Validation of Zero Energy State
 					</td>
 				</tr>
@@ -289,10 +295,10 @@
 					Table D: Authorized Employees
 				</th>
 				<tr>
-					<td class="tleft w50">
+					<td class="tleft w50 sub">
 							Name:
 					</td>
-					<td class="tleft w50">
+					<td class="tleft w50 sub">
 							Title:
 					</td>
 				</tr>

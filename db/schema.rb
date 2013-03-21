@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320175721) do
+ActiveRecord::Schema.define(:version => 20130321193855) do
 
   create_table "authemps", :force => true do |t|
     t.integer  "form_id"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(:version => 20130320175721) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.date     "assess_date"
+    t.text     "highvolt_text"
+    t.text     "lowvolt_text"
+    t.text     "hazmat_text"
+    t.text     "mech_text"
+    t.text     "stored_text"
+    t.text     "cryo_text"
+    t.text     "high_text"
+    t.text     "hyd_text"
+    t.text     "pneu_text"
+    t.text     "vac_text"
+    t.text     "rad_text"
+    t.text     "uv_text"
+    t.text     "rf_text"
   end
 
   add_index "forms", ["client_id"], :name => "index_forms_on_client_id"
