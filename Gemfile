@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+gem 'nested_form'
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:

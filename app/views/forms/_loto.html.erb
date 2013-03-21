@@ -1,4 +1,4 @@
-<%= form_for([@client,@form])  do |f| %>
+<%= nested_form_for([@client,@form])  do |f| %>
   <% if @form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this form from being saved:</h2>
@@ -269,10 +269,21 @@
 					<td class="tleft w15">
 						<%= proc.text_area :valid_zero, :class=>"area w99" %>
 					</td>
-					<%= f.hidden_field :_destroy %>
 				<tr>
+				<tr>
+					<td class="tcenter w99" colspan="6">
+						<%= proc.link_to_remove "Remove this Step" %>
+					</td>
+				</tr>	
 			</table>
 			<% end %>
+			<table>
+				<tr>
+					<td class="tcenter w99">
+						<%= f.link_to_add "Add a Step", :procedures %>
+					</td>
+				</tr>
+			</table>
 			<table>
 				<th class="top" colspan="2">
 					Table D: Authorized Employees
@@ -296,8 +307,19 @@
 							<%= ae.text_field :title, :class=>"area w99" %>
 						</td>
 					</tr>
+					<tr>
+						<td class="tcenter w99" colspan="6">
+							<%= ae.link_to_remove "Remove this Employee" %>
+					</tr>	
 				</table>
 			<% end %>
+			<table>
+				<tr>
+					<td class="tcenter w99">
+						<%= f.link_to_add "Add a Authorized Employee", :authemps %>
+					</td>
+				</tr>
+			</table>
 			<table>
 				<th>Transfer of the Control of LOTO Devices during Change of Shift:</th>
 				<tr><td>If this procedure lasts more than one work shift, the arriving shift employees will apply their locks and tags before the departing shift employees remove their locks and tags. In addition, the arriving shift authorized employee(s) will review and verify that the procedures listed above have been followed and are still in place.</td></tr> 
