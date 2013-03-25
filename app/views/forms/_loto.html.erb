@@ -82,7 +82,7 @@
 								<%= f.check_box :elec_highvolt %>
 							</td>
 							<td class="tleft">
-								Electrical - Hard Voltage (600V or more) <%= f.text_field :highvolt_text, :class => "box" %>
+								Electrical - High Voltage (600V or more) <%= f.text_field :highvolt_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -98,7 +98,7 @@
 								<%= f.check_box :chem_hazmat %>
 							</td>
 							<td class="tleft">
-								Chemicals, Gases = Hazardous Materials <%= f.text_field :hazmat_text, :class => "box" %>
+								Chemicals, Gases - Hazardous Materials <%= f.text_field :hazmat_text, :class => "box" %>
 							</td>
 						</tr>
 						<tr>
@@ -254,7 +254,7 @@
 					</td>
 				</tr>
 			</table>
-			<%= f.fields_for :procedures do |proc| %>
+			<%= f.fields_for :procedures, @procedures do |proc| %>
 			<table>
 				<tr>
 					<td class="tleft w10">

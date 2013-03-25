@@ -19,6 +19,8 @@ class FormsController < ApplicationController
 	# GET /forms/1/.json
 	def new
 		@form = @client.forms.new
+
+    @procedures = @form.procedures.order('step_num ASC')
     3.times do
       procedure = @form.procedures.build
     end
@@ -69,6 +71,7 @@ class FormsController < ApplicationController
   	# GET /forms/1
   	def edit
   		@form = @client.forms.find(params[:id])
+      @procedures = @form.procedures.order('step_num ASC')
   	end
   	# PUT /forms/1
   	# PUT /forms/1.json
