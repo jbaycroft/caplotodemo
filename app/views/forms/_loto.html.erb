@@ -275,7 +275,15 @@
 					<td class="tleft w15">
 						<%= proc.text_area :valid_zero, :class=>"area w99" %>
 					</td>
+				</tr>
 				<tr>
+					<td class="tleft">
+						Image Upload
+					</td>
+					<td class="tleft" colspan="4">
+						<%= proc.file_field :image, :class=>"field w99"%>
+					</td>
+				</tr>
 				<tr>
 					<td class="tcenter w99" colspan="6">
 						<%= proc.link_to_remove "Remove this Step" %>
