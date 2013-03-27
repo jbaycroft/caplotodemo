@@ -1,10 +1,11 @@
 source 'http://rubygems.org'
 gem 'nested_form'
 gem 'rails', '3.2.12'
+gem "rmagick", "2.12.0", :require => 'RMagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'carrierwave'
+gem 'carrierwave', :require => 'RMagick'
 gem 'fog'
 #gem 'sqlite3'
 gem 'pg'
