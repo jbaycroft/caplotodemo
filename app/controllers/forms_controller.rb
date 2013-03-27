@@ -27,7 +27,6 @@ class FormsController < ApplicationController
     3.times do
       authemp = @form.authemps.build
     end
-    @procedures = @form.procedures.order('step_num ASC')
 
 		respond_to do |format|
       		format.html # show.html.erb
