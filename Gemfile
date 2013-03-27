@@ -5,7 +5,7 @@ gem "rmagick", "2.12.0", :require => 'RMagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'carrierwave', :require => 'RMagick'
+gem 'carrierwave'
 gem 'fog'
 #gem 'sqlite3'
 gem 'pg'
