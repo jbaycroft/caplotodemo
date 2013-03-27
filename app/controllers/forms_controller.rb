@@ -20,13 +20,14 @@ class FormsController < ApplicationController
 	def new
 		@form = @client.forms.new
 
-    @procedures = @form.procedures.order('step_num ASC')
+    
     3.times do
       procedure = @form.procedures.build
     end
     3.times do
       authemp = @form.authemps.build
     end
+    @procedures = @form.procedures.order('step_num ASC')
 
 		respond_to do |format|
       		format.html # show.html.erb
@@ -47,6 +48,7 @@ class FormsController < ApplicationController
 	# GET /forms/1.json
 	def show
 		@form = @client.forms.find(params[:id])
+    @procedures = @form.procedures.order('step_num ASC')
 
     	respond_to do |format|
       		format.html # show.html.erb

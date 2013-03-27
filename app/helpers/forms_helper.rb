@@ -11,4 +11,20 @@ module FormsHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
 
+  def check_a_box(bool)
+    if bool == false
+      image_tag("FALSE_Checkbox.gif")
+    else
+      image_tag("TRUE_Checkbox.gif")
+    end
+  end
+
+  def image_check(link)
+    if link.blank?
+
+    else
+      image_tag(link)
+    end
+  end
+
 end

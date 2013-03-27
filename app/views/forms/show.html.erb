@@ -1,18 +1,4 @@
-<%= nested_form_for([@client,@form])  do |f| %>
-  <% if @form.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this form from being saved:</h2>
-
-      <ul>
-      <% @form.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <!-- COMMENT LATER -->
-	<div class="table">
+<div class="table">
 		<table>
 			<tr>
 				<th class="top" colspan="2">
@@ -24,7 +10,7 @@
 					Equipment Name:
 				</td>
 				<td class="tleft">
-					<%= f.text_field :equip_name, :class=>"field w99" %>
+					<%= @form.equip_name %>
 				</td>
 			</tr>
 			<tr>
@@ -32,7 +18,7 @@
 					Equipment ID:
 				</td>
 				<td class="tleft">
-					<%= f.text_field :equip_id, :class=>"field w99" %>
+					<%= @form.equip_id %>
 				</td>
 			</tr>
 			<tr>
@@ -40,7 +26,7 @@
 					Equipment Location:
 				</td>
 				<td class="tleft">
-					<%= f.text_field :equip_location, :class=>"field w99" %>
+					<%= @form.equip_location %>
 				</td>
 			</tr>
 			<tr>
@@ -48,7 +34,7 @@
 					Date of Assessment:
 				</td>
 				<td class="tleft">
-					<%= f.date_select :assess_date, :class=>"field w99" %>
+					<%= @form.assess_date %>
 				</td>
 			</tr>
 			<tr>
@@ -56,7 +42,7 @@
 					Tasks to be Performed:
 				</td>
 				<td class="tleft">
-					<%= f.text_area :tasks_performed, :class=>"area w99" %>
+					<%= @form.tasks_performed %>
 				</td>
 			</tr>
 			<tr>
@@ -64,7 +50,7 @@
 					Persons Performing the Assessment:
 				</td>
 				<td class="tleft">
-					<%= f.text_area :assessor, :class=>"area w99" %>
+					<%= @form.assessor %>
 				</td>
 			</tr>
 		</table>
@@ -79,58 +65,58 @@
 					<table class="checkbox1">
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :elec_highvolt %>
+								<%= check_a_box(@form.elec_highvolt) %>
 							</td>
 							<td class="tleft">
-								Electrical - High Voltage (600V or more) <%= f.text_field :highvolt_text, :class => "box" %>
-							</td>
-						</tr>
-						<tr>
-							<td class="tleft">
-								<%= f.check_box :elec_lowvolt %>
-							</td>
-							<td class="tleft">
-								Electrical - Low Voltage (50V - 600V) <%= f.text_field :lowvolt_text, :class => "box" %>
+								Electrical - High Voltage (600V or more) <%= @form.highvolt_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :chem_hazmat %>
+								<%= check_a_box(@form.elec_lowvolt) %>
 							</td>
 							<td class="tleft">
-								Chemicals, Gases - Hazardous Materials <%= f.text_field :hazmat_text, :class => "box" %>
+								Electrical - Low Voltage (50V - 600V) <%= @form.lowvolt_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :mech %>
+								<%= check_a_box(@form.chem_hazmat) %>
 							</td>
 							<td class="tleft">
-								Mechanical - Shearing, pinching, rolling <%= f.text_field :mech_text, :class => "box" %>
+								Chemicals, Gases - Hazardous Materials <%= @form.hazmat_text %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= check_a_box(@form.mech) %>
+							</td>
+							<td class="tleft">
+								Mechanical - Shearing, pinching, rolling <%= @form.mech_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">	 
-								<%= f.check_box :stored_engy %>
+								<%= check_a_box(@form.stored_engy) %>
 							</td>
 							<td class="tleft">
-								Stored Energy - Springs, capacitors, batteries <%= f.text_field :stored_text, :class => "box" %>
-							</td>
-						</tr>
-						<tr>
-							<td class="tleft">
-								<%= f.check_box :therm_cryo %>
-							</td>
-							<td class="tleft">
-								Thermal - Cryogenics - temp below 32°F/O°C <%= f.text_field :cryo_text, :class => "box" %>
+								Stored Energy - Springs, capacitors, batteries <%= @form.stored_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :therm_high %>
+								<%= check_a_box(@form.therm_cryo) %>
 							</td>
 							<td class="tleft">
-								Thermal - Temperature above 140°F/60°C <%= f.text_field :high_text, :class => "box" %>
+								Thermal - Cryogenics - temp below 32°F/O°C <%= @form.cryo_text %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= check_a_box(@form.therm_high) %>
+							</td>
+							<td class="tleft">
+								Thermal - Temperature above 140°F/60°C <%= @form.high_text %>
 							</td>
 						</tr>
 					</table>
@@ -139,58 +125,58 @@
 					<table class="checkbox1">
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :press_hyd %>
+								<%= check_a_box(@form.press_hyd) %>
 							</td>
 							<td class="tleft"> 
-								Pressure - Hydraulic (oil, water) <%= f.text_field :hyd_text, :class => "box" %>
+								Pressure - Hydraulic (oil, water) <%= @form.hyd_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :press_pneu %>
+								<%= check_a_box(@form.press_pneu) %>
 							</td>
 							<td class="tleft">
-								Pressure - Pneumatic (air, gas) <%= f.text_field :pneu_text, :class => "box" %>
-							</td>
-						</tr>
-						<tr>
-							<td class="tleft">
-								<%= f.check_box :vacuum %>
-							</td>
-							<td class="tleft">
-								Vacuum - PRessure @ mTorr <%= f.text_field :vac_text, :class => "box" %>
+								Pressure - Pneumatic (air, gas) <%= @form.pneu_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :ion_rad %>
+								<%= check_a_box(@form.vacuum) %>
 							</td>
 							<td class="tleft">
-								Ionizing Radiation - X-Ray sources <%= f.text_field :rad_text, :class => "box" %>
-							</td>
-						</tr>
-						<tr>
-							<td class="tleft">
-								<%= f.check_box :non_rad_uv %>
-							</td>
-							<td class="tleft">
-								Non-Ionizing Radiation - UV, IR <%= f.text_field :uv_text, :class => "box" %>
+								Vacuum - PRessure @ mTorr <%= @form.vac_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :non_rad_rf %>
+								<%= check_a_box(@form.ion_rad) %>
 							</td>
 							<td class="tleft">
-								Non-Ionizing Radiation - RF, Lasers <%= f.text_field :rf_text, :class => "box" %>
+								Ionizing Radiation - X-Ray sources <%= @form.rad_text %>
 							</td>
 						</tr>
 						<tr>
 							<td class="tleft">
-								<%= f.check_box :other %>
+								<%= check_a_box(@form.non_rad_uv) %>
 							</td>
 							<td class="tleft">
-								Other: <%= f.text_field :other_text, :class => "box" %>
+								Non-Ionizing Radiation - UV, IR <%= @form.uv_text %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= check_a_box(@form.non_rad_rf) %>
+							</td>
+							<td class="tleft">
+								Non-Ionizing Radiation - RF, Lasers <%= @form.rf_text %>
+							</td>
+						</tr>
+						<tr>
+							<td class="tleft">
+								<%= check_a_box(@form.other) %>
+							</td>
+							<td class="tleft">
+								Other: <%= @form.other_text %>
 							</td>
 						</tr>
 					</table>
@@ -254,51 +240,35 @@
 					</td>
 				</tr>
 			</table>
-			<%= f.fields_for :procedures, @procedures do |proc| %>
-			<table>
-				<tr>
-					<td class="tleft w10">
-						<%= proc.text_field :step_num, :class=>"field w99" %>
-					</td>
-					<td class="tleft w15">
-						<%= proc.text_area :haz_eng_loc, :class=>"area w99" %>
-					</td>
-					<td class="tleft w15">
-						<%= proc.text_area :engy_ctrl_pt, :class=>"area w99" %>
-					</td>
-					<td class="tleft w15">
-						<%= proc.text_area :lo_dev, :class=>"area w99" %>
-					</td>
-					<td class="tleft w15">
-						<%= proc.text_area :resid_engy, :class=>"area w99" %>
-					</td>
-					<td class="tleft w15">
-						<%= proc.text_area :valid_zero, :class=>"area w99" %>
-					</td>
-				</tr>
-				<tr>
-					<td class="tleft">
-						Image Upload
-					</td>
-					<td class="tleft" colspan="4">
-						<%= proc.file_field :image, :class=>"field w99"%>
-						<%= proc.hidden_field :image_cache %>
-					</td>
-				</tr>
-				<tr>
-					<td class="tcenter w99" colspan="6">
-						<%= proc.link_to_remove "Remove this Step" %>
-					</td>
-				</tr>	
-			</table>
+			<%= div_for(@procedures) do |procedure| %>
+				<table>
+					<tr>
+						<td class="tleft w10">
+							<%= procedure.step_num %>
+						</td>
+						<td class="tleft w15">
+							<%= procedure.haz_eng_loc %>
+						</td>
+						<td class="tleft w15">
+							<%= procedure.engy_ctrl_pt %>
+						</td>
+						<td class="tleft w15">
+							<%= procedure.lo_dev %>
+						</td>
+						<td class="tleft w15">
+							<%= procedure.resid_engy %>
+						</td>
+						<td class="tleft w15">
+							<%= procedure.valid_zero %>
+						</td>
+					</tr>
+					<tr>
+						<td class="tcenter" colspan="6">
+							<%= image_check(procedure.image) %>
+						</td>
+					</tr>
+				</table>
 			<% end %>
-			<table>
-				<tr>
-					<td class="tcenter w99">
-						<%= f.link_to_add "Add a Step", :procedures %>
-					</td>
-				</tr>
-			</table>
 			<table>
 				<th class="top" colspan="2">
 					Table D: Authorized Employees
@@ -312,29 +282,18 @@
 					</td>
 				</tr>
 			</table>
-			<%= f.fields_for :authemps do |ae| %>
+			<%= div_for(@form.authemps) do |ae| %>
 				<table>
 					<tr> 
 						<td class="tleft w50">
-							<%= ae.text_field :name, :class=>"area w99" %>
+							<%= ae.name %>
 						</td>
 						<td class="tleft w50">
-							<%= ae.text_field :title, :class=>"area w99" %>
+							<%= ae.title %>
 						</td>
-					</tr>
-					<tr>
-						<td class="tcenter w99" colspan="6">
-							<%= ae.link_to_remove "Remove this Employee" %>
 					</tr>	
 				</table>
 			<% end %>
-			<table>
-				<tr>
-					<td class="tcenter w99">
-						<%= f.link_to_add "Add a Authorized Employee", :authemps %>
-					</td>
-				</tr>
-			</table>
 			<table>
 				<th>Transfer of the Control of LOTO Devices during Change of Shift:</th>
 				<tr><td>If this procedure lasts more than one work shift, the arriving shift employees will apply their locks and tags before the departing shift employees remove their locks and tags. In addition, the arriving shift authorized employee(s) will review and verify that the procedures listed above have been followed and are still in place.</td></tr> 
@@ -346,11 +305,9 @@
 				<!-- COMMENT LATER -->
 				<td class="tcenter">
 					<ul class="menu w100">
-						<li><%= f.submit 'Save Form', :class=>"link2" %></li>
 						<li><%= link_to 'Back to Form List', client_path(@client) , :class=>"link2" %></li>
 					</ul>
 				</td>
 			</tr>
 		</table>
 	</div>
-<% end %>
