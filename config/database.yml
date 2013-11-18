@@ -25,10 +25,10 @@
 #  timeout: 5000
 production:
   adapter: pg
-  database: dancgdijqpjrom
-  host: ec2-54-243-190-226.compute-1.amazonaws.com
-  username: ncfaekygugcmuk
-  password: ViOMEXpXpfH-YGU49hV1b9ekoe
+  database: ddi59sb6nai9oh
+  host: ec2-23-23-177-33.compute-1.amazonaws.com
+  username: eehduvjvgrqfiw
+  password: N7_9zBsP83nolUvOFZOOe4beF8
   port: 5432
   pool: 5
   timeout: 5000
